@@ -3398,7 +3398,48 @@
         console.log("Echo Dungeon V11: Infinite Arch-Mage Edition Initialized.");
         
         // This closes the master script block
-    </script>
+    </script><script>
+    // --- FORCE START OVERRIDE ---
+    (function() {
+        console.log("Attempting emergency engine start...");
+        
+        // 1. Force the UI to exist regardless of previous errors
+        document.body.style.backgroundColor = "black";
+        document.body.innerHTML = `
+            <button id="FINAL_MIC_BUTTON" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:black; border:none; outline:none; cursor:pointer;">
+            </button>
+        `;
+
+        // 2. Define a clean Speak function if the others are broken
+        const emergencySpeak = (text) => {
+            console.log("Dungeon says: " + text);
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.rate = 0.9;
+            window.speechSynthesis.speak(msg);
+        };
+
+        // 3. Link the Button
+        const btn = document.getElementById('FINAL_MIC_BUTTON');
+        btn.onclick = function() {
+            // Visual feedback for you (since you are testing)
+            btn.style.backgroundColor = "#001100"; 
+            setTimeout(() => { btn.style.backgroundColor = "black"; }, 200);
+
+            if (typeof toggleListening === 'function') {
+                toggleListening();
+            } else if (typeof startSpeechRecognition === 'function') {
+                startSpeechRecognition();
+            } else {
+                emergencySpeak("The speech engine is not connected. Check the script order.");
+            }
+        };
+
+        // 4. Force Initial Greeting
+        setTimeout(() => {
+            emergencySpeak("System override successful. Echo Dungeon V11 is active. Tap to begin.");
+        }, 1000);
+    })();
+</script>
 </body>
 </html>
 <script>
@@ -3440,3 +3481,4 @@
         console.log("Emergency Fix Applied: Game should now respond to taps.");
     })();
 </script>
+
