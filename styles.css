@@ -1,0 +1,51 @@
+/* Echo Dungeon V11 - Blind-First Edition Styles */
+/* High contrast, simple visual cues for battery saving & state indication */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+    overflow: hidden;
+}
+
+#micButton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #222;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#micButton:active {
+    background: #444;
+}
+
+/* Green when listening for voice commands */
+.listening {
+    background: #004400 !important;
+    border: 10px solid #00ff00;
+}
+
+/* Blue before game starts */
+.start-button {
+    background: #000044 !important;
+    border: 10px solid #0000ff;
+}
+
+/* Hidden but accessible to screen readers */
+#textDisplay {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

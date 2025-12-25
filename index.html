@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Echo Dungeon V11 - Blind-First Edition</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Screen reader status display -->
+    <div id="textDisplay" role="status" aria-live="polite"></div>
+    
+    <!-- Main interaction button - full screen for easy tap -->
+    <button id="micButton" class="start-button" onclick="handleClick()" 
+            aria-label="Voice command button - Tap to speak">
+    </button>
+
+    <!-- Load game modules in order -->
+    <script src="js/data/classes.js"></script>
+    <script src="js/data/equipment.js"></script>
+    <script src="js/data/abilities.js"></script>
+    <script src="js/data/enemies.js"></script>
+    <script src="js/data/items.js"></script>
+    <script src="js/data/rooms.js"></script>
+    <script src="js/core/game-state.js"></script>
+    <script src="js/core/audio.js"></script>
+    <script src="js/core/voice.js"></script>
+    <script src="js/core/save-load.js"></script>
+    <script src="js/systems/dungeon.js"></script>
+    <script src="js/systems/combat.js"></script>
+    <script src="js/systems/inventory.js"></script>
+    <script src="js/systems/merchant.js"></script>
+    <script src="js/systems/player.js"></script>
+    <script src="js/commands/movement.js"></script>
+    <script src="js/commands/actions.js"></script>
+    <script src="js/commands/combat-commands.js"></script>
+    <script src="js/commands/info.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
